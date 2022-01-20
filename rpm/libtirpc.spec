@@ -9,7 +9,7 @@ Name:       libtirpc
 # << macros
 
 Summary:    Transport Independent RPC library (SunRPC replacement)
-Version:    1.3.2
+Version:    1.3.3_rc1
 Release:    0
 Group:      Development/Libraries
 License:    GPLv2
@@ -22,13 +22,15 @@ BuildRequires:  autoconf
 BuildRequires:  automake
 
 %description
-Libtirpc is a port of Suns Transport-Independent RPC library to Linux. It's being developed by the Bull GNU/Linux NFSv4 project.
+Libtirpc is a port of Suns Transport-Independent RPC library to Linux.
+It's being developed by the Bull GNU/Linux NFSv4 project.
 
 %if "%{?vendor}" == "chum"
-PackagerName: nephros
 Categories:
   - System
   - Library
+Custom:
+  PackageRepo: https://github.com/sailfishos-chum/libtirpc
 %endif
 
 
@@ -49,13 +51,14 @@ Requires:   %{name} = %{version}-%{release}
 %{summary}.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{version}/upstream
 
 # >> setup
 # << setup
 
 %build
 # >> build pre
+./bootstrap
 # << build pre
 
 %configure --disable-static \
@@ -83,7 +86,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %{_libdir}/*.so.*
-%{_sysconfdir}/*
+%config %{_sysconfdir}/*
 # >> files
 # << files
 
