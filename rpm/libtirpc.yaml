@@ -1,0 +1,41 @@
+Name: libtirpc
+Summary: Transport Independent RPC library (SunRPC replacement)
+Version: 1.3.2
+Release: 0
+Group: Development/Libraries
+License: GPLv2
+Sources:
+    - '%{name}-%{version}.tar.bz2'
+URL: https://sourceforge.net/projects/libtirpc/
+Description: |
+    Libtirpc is a port of Suns Transport-Independent RPC library to Linux. It's being developed by the Bull GNU/Linux NFSv4 project.
+
+    %if "%{?vendor}" == "chum"
+    PackagerName: nephros
+    Categories:
+      - System
+      - Library
+    %endif
+
+PkgBR:
+  - autoconf
+  - automake
+ConfigOptions:
+  - '--with-gnu-ld'
+  - '--disable-gssapi'
+Files:
+  - '%{_libdir}/*.so.*'
+  - '%{_sysconfdir}/*'
+SubPackages:
+    - Name:  doc
+      Summary: Documentation files for %{name}
+      Group: Documentation
+      Files:
+        - '%{_mandir}/*/*'
+    - Name:  devel
+      Summary: Developmemt files for %{name}
+      Group: Development/Libraries
+      Files:
+        - '%{_includedir}/tirpc/*'
+        - '%{_libdir}/*.so'
+        - '%{_libdir}/pkgconfig/*'
