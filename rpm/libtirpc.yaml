@@ -23,8 +23,8 @@ Description: |
 PkgBR:
   - autoconf
   - automake
-Patches:
-  - 1.3.3-rc1.diff
+#Patches:
+  #- 1.3.3-rc1.diff
 SetupOptions: -q -n %{name}-%{version}/upstream
 ConfigOptions:
   - '--with-gnu-ld'

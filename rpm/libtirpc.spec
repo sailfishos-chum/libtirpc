@@ -16,7 +16,6 @@ License:    GPLv2
 URL:        https://sourceforge.net/projects/libtirpc/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  libtirpc.yaml
-Patch0:     1.3.3-rc1.diff
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  autoconf
@@ -54,8 +53,6 @@ Requires:   %{name} = %{version}-%{release}
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
-# 1.3.3-rc1.diff
-%patch0 -p1
 # >> setup
 # << setup
 
