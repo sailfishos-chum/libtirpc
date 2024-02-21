@@ -9,7 +9,7 @@ Name:       libtirpc
 # << macros
 
 Summary:    Transport Independent RPC library (SunRPC replacement)
-Version:    1.3.3
+Version:    1.3.4
 Release:    0
 Group:      Development/Libraries
 License:    GPLv2
